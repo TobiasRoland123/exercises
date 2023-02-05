@@ -11,11 +11,17 @@ const calculateButton = document.querySelector("#calculate");
 const resultListElement = document.querySelector("#results li");
 const resultList = document.querySelector("#results");
 const doRound = document.querySelector("#doround");
+const clearAll = document.querySelector("#clear");
 
 // waits until page is loaded, and then adds click eventlistener to the calculate button ->
 // when the buttton is clicked the function "doMath" is called.
 window.addEventListener("load", () => {
   calculateButton.addEventListener("click", doMath);
+
+  //   ads an eventlistener to the clear all button and then sets the content of resultList to nothing
+  clearAll.addEventListener("click", () => {
+    resultList.innerHTML = "";
+  });
 });
 
 // this function is called when we click the calculate button.
