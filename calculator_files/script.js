@@ -6,23 +6,26 @@ let firstNumber = document.querySelector("#firstnumber");
 let secondNumber = document.querySelector("#secondnumber");
 let operator = document.querySelector("#operator").value;
 let result;
+let decimals = document.querySelector("#decimals").value;
 const calculateButton = document.querySelector("#calculate");
 const resultListElement = document.querySelector("#results li");
 const resultList = document.querySelector("#results");
+const doRound = document.querySelector("#doround");
 
 // waits until page is loaded, and then adds click eventlistener to the calculate button ->
 // when the buttton is clicked the function "doMath" is called.
 window.addEventListener("load", () => {
   calculateButton.addEventListener("click", doMath);
-  console.log(operator);
 });
 
 // this function is called when we click the calculate button.
 function doMath() {
-  console.log(operator);
+  console.log(operator.value);
 
   //   opdates the value of the operator variable
   operator = document.querySelector("#operator").value;
+  decimals = document.querySelector("#decimals").value;
+  console.log(decimals);
 
   //   this if statement makes sure that we can use all the operators
   if (operator === "add") {
@@ -35,7 +38,17 @@ function doMath() {
   } else {
     result = Number(firstNumber.value) / Number(secondNumber.value);
   }
-  console.log(result);
+
+  // checkes if the round to box is ckecked.
+  // if the box is checked then round to the number of decimals equal to the value of the decimals variable
+  if (doRound.checked) {
+    console.log("checkbox is checked");
+    result = result.toFixed(decimals);
+  }
+  //   if its not checked, then just print  in the console
+  else {
+    console.log("checkbox is not checked");
+  }
 
   //   here the result is put as the new value of the first inpoutfield
   firstNumber.value = result;
