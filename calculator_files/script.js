@@ -7,6 +7,7 @@ let secondNumber = document.querySelector("#secondnumber");
 let operator = document.querySelector("#operator").value;
 let result;
 let decimals = document.querySelector("#decimals").value;
+let latestResult;
 const calculateButton = document.querySelector("#calculate");
 const resultListElement = document.querySelector("#results li");
 const resultList = document.querySelector("#results");
@@ -20,7 +21,10 @@ window.addEventListener("load", () => {
 
   //   ads an eventlistener to the clear all button and then sets the content of resultList to nothing
   clearAll.addEventListener("click", () => {
+    latestResult = resultList.lastChild.innerHTML;
+    console.log(latestResult);
     resultList.innerHTML = "";
+    resultList.innerHTML = latestResult;
   });
 });
 
