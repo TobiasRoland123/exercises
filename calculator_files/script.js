@@ -7,7 +7,6 @@ let secondNumber = document.querySelector("#secondnumber");
 let operator = document.querySelector("#operator").value;
 let result;
 const calculateButton = document.querySelector("#calculate");
-
 const resultListElement = document.querySelector("#results li");
 const resultList = document.querySelector("#results");
 
@@ -15,16 +14,26 @@ const resultList = document.querySelector("#results");
 // when the buttton is clicked the function "doMath" is called.
 window.addEventListener("load", () => {
   calculateButton.addEventListener("click", doMath);
+  console.log(operator);
 });
 
 // this function is called when we click the calculate button.
 function doMath() {
-  console.log("do math has been called");
+  console.log(operator);
+
+  //   opdates the value of the operator variable
+  operator = document.querySelector("#operator").value;
 
   //   this if statement makes sure that we can use all the operators
   if (operator === "add") {
     // here the values from the inputfields are converted from strings to numbers and added toghether
     result = Number(firstNumber.value) + Number(secondNumber.value);
+  } else if (operator === "sub") {
+    result = Number(firstNumber.value) - Number(secondNumber.value);
+  } else if (operator === "mul") {
+    result = Number(firstNumber.value) * Number(secondNumber.value);
+  } else {
+    result = Number(firstNumber.value) / Number(secondNumber.value);
   }
   console.log(result);
 
