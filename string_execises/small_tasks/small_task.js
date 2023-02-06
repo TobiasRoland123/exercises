@@ -1,20 +1,29 @@
 "use strict";
 
-// const theName = "Peter Heronimous Lind";
-const theName = "Albus Percival Wulfric Brian Dumbledore";
+// *********************************  name_parts execise: *******************************
 
-let firstName;
-let middleName;
-let lastName;
+// const theName = "Albus Percival Wulfric Brian Dumbledore";
 
-firstName = theName.substring(0, theName.indexOf(" "));
+// let firstName;
+// let middleName;
+// let lastName;
 
-middleName = theName.substring(theName.indexOf(" "), theName.lastIndexOf(" "));
+// firstName = theName.substring(0, theName.indexOf(" "));
 
-lastName = theName.substring(theName.lastIndexOf(" "));
+// middleName = theName.substring(theName.indexOf(" "), theName.lastIndexOf(" "));
 
-console.log(`this is first name ${firstName}`);
+// lastName = theName.substring(theName.lastIndexOf(" "));
 
-console.log(`this is midlle name ${middleName}`);
+// console.log(`this is first name ${firstName}`);
 
-console.log(`this is last name ${lastName}`);
+// console.log(`this is midlle name ${middleName}`);
+
+// console.log(`this is last name ${lastName}`);
+
+// *********************************  3caPitalization execise: *******************************
+
+let theName = "pETer";
+
+let sameName = theName.substring(0, 2).toLowerCase() + theName[2].toUpperCase() + theName.substring(3).toLowerCase();
+
+console.log(sameName);
