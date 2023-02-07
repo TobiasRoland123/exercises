@@ -8,6 +8,7 @@ let operator = document.querySelector("#operator").value;
 let result;
 let decimals = document.querySelector("#decimals").value;
 let latestResult;
+
 const calculateButton = document.querySelector("#calculate");
 const resultListElement = document.querySelector("#results li");
 const resultList = document.querySelector("#results");
