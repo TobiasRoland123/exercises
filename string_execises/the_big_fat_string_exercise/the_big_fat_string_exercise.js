@@ -12,7 +12,9 @@ window.addEventListener("load", function () {
 });
 
 function createOutput() {
+  option = Number(document.querySelector("#options").value);
   console.log(option);
+
   if (option === 0) {
     outputValue = inputField.value[0].toUpperCase() + inputField.value.substring(1);
   } else if (option === 1) {
@@ -33,7 +35,17 @@ function createOutput() {
     outputValue = "*".repeat(inputField.value.length);
   } else if (option === 6) {
     outputValue = inputField.value.substring(0, 2).toLowerCase() + inputField.value[2].toUpperCase() + inputField.value.substring(3).toLowerCase();
+  } else if (option === 7) {
+    outputValue = inputField.value
+      .split(" ")
+      .map((word) => {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      })
+      .join(" ");
+    outputValue = `${outputValue.substring(0, outputValue.indexOf(" ")).toLowerCase()}${outputValue.substring(outputValue.indexOf(" "))}`;
   }
+
+  console.log(outputValue);
 
   //   else {
   //     console.log(`option is a: ${option}`);
