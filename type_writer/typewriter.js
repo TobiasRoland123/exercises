@@ -3,13 +3,13 @@
 let inputText = document.querySelector("#typewriter");
 let input = inputText.textContent;
 let iteration = -1;
-let maxiteration = inputText.textContent.length;
+let maxiteration = input.length;
 
 window.addEventListener("load", writeCharacters);
 
 function writeCharacters() {
-  addCharacterLoop();
   inputText.textContent = "";
+  addCharacterLoop();
 }
 
 function addCharacterLoop() {
