@@ -1,25 +1,18 @@
 "use strict";
 
-const name = "Peter";
-const drink = "pepsi";
-let letter = name[0];
-let len = name.length;
+let iteration = 0;
 
-// console.log(`This is ${name} and he's drinking ${drink}.`);
-// console.log(`the first letter in ${name} is  ${letter}`);
-// console.log(`There is ${len} letters in ${name}`);
+// for (let i = 0; i <= 10; i++) {
+//   console.log("loop", i);
+//   setTimeout(200);
+// }
 
-// console.log(name[name.length - 1]);
+loop();
 
-// const str = "samuel tobias roland uyet";
-
-// console.log(str.substring(str.length - 4));
-// // Expected output: "oz"
-
-// // console.log(str.substring(2));
-// // // Expected output: "zilla"
-
-const p = "Goethestraße";
-const pUppwe = p.toUpperCase;
-
-console.log(pUppwe);
+function loop() {
+  while (iteration < 10) {
+    iteration += 1;
+    console.log("loop", iteration);
+    setTimeout(loop, 200);
+  }
+}
