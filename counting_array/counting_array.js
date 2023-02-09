@@ -1,21 +1,20 @@
 "use strict";
 
 const arr = [];
-let iteration = 1;
+let iteration = 0;
 
 loop();
 
 function loop() {
-  if (iteration < 10) {
+  if (iteration < 9) {
     arr.unshift(iteration);
     iteration++;
-
-    setTimeout(loop, 500);
   } else {
     arr.pop();
     arr.unshift(iteration);
     iteration++;
-    setTimeout(loop, 500);
   }
   console.log(arr);
+
+  setTimeout(loop, 1000);
 }
