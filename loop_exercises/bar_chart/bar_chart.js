@@ -63,6 +63,9 @@ document.addEventListener("DOMContentLoaded", start);
 let costumers = new Array();
 
 function start() {
+  document.querySelectorAll(".bar").forEach((div) => {
+    div.addEventListener("mouseover", hover);
+  });
   createStartArr();
 }
 
@@ -77,13 +80,38 @@ function createStartArr() {
 
 function startBarChart() {
   for (let i = 0; i < 40; i++) {
-    document.querySelector(".bar--" + Number(i)).style.height = `${costumers[i]}px`;
+    if (i < 5) {
+      document.querySelector(".bar--" + Number(i)).style.height = `${(costumers[i] *= 2)}px`;
+      document.querySelector(".bar--" + Number(i)).style.background = "#4e734e";
+    } else if (i < 10) {
+      document.querySelector(".bar--" + Number(i)).style.height = `${(costumers[i] *= 2)}px`;
+      document.querySelector(".bar--" + Number(i)).style.background = "#4a8c4a";
+    } else if (i < 15) {
+      document.querySelector(".bar--" + Number(i)).style.height = `${(costumers[i] *= 2)}px`;
+      document.querySelector(".bar--" + Number(i)).style.background = "#3ea23e";
+    } else if (i < 20) {
+      document.querySelector(".bar--" + Number(i)).style.height = `${(costumers[i] *= 2)}px`;
+      document.querySelector(".bar--" + Number(i)).style.background = "#31b731";
+    } else if (i < 25) {
+      document.querySelector(".bar--" + Number(i)).style.height = `${(costumers[i] *= 2)}px`;
+      document.querySelector(".bar--" + Number(i)).style.background = "#31b731";
+    } else if (i < 30) {
+      document.querySelector(".bar--" + Number(i)).style.height = `${(costumers[i] *= 2)}px`;
+      document.querySelector(".bar--" + Number(i)).style.background = "#1ed01e";
+    } else if (i < 35) {
+      document.querySelector(".bar--" + Number(i)).style.height = `${(costumers[i] *= 2)}px`;
+      document.querySelector(".bar--" + Number(i)).style.background = "#0eea0e";
+    }
   }
+  document.querySelectorAll(".bar").forEach((div) => {
+    div.classList.add("animation");
+  });
   initLoop();
 }
 
 function initLoop() {
-  setTimeout(modifyData, 1000);
+  //   setTimeout(modifyData, 1000);
+  document.querySelector(".bar").addEventListener("animationiteration", modifyData);
 }
 
 function modifyData() {
@@ -102,4 +130,8 @@ function displayData() {
 
 function getNumberOfCostumers() {
   return Math.floor(Math.random() * 32) + 1;
+}
+
+function hover() {
+  document.querySelector("#numberOfCostumers").textContent = `Number of costumers: ${this.style.height.substring(0, 2)}`;
 }

@@ -10,11 +10,26 @@
   margin: 10% 10% 0;
   height: 100px;
   place-items: end;
+  overflow: hidden;
 }
 
 .bar {
-  background: green;
+  background: lime;
   width: 3%;
   height: 40px;
   border: 1px solid black;
+}
+.animation {
+  animation-name: move;
+  animation-duration: 1000ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes move {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }

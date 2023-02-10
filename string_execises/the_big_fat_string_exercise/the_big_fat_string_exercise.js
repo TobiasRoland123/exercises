@@ -8,7 +8,7 @@ let option = Number(document.querySelector("#options").value);
 const generateButton = document.querySelector("#generateOutput");
 
 window.addEventListener("load", function () {
-  generateButton.addEventListener("click", createOutput);
+  document.querySelector("#generateOutput").addEventListener("mouseover", createOutput);
 });
 
 function createOutput() {
