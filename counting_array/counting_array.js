@@ -16,5 +16,5 @@ function loop() {
   }
   console.log(arr);
 
-  setTimeout(loop, 1000);
+  setTimeout(loop, 500);
 }
