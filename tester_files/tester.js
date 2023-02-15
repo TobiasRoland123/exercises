@@ -27,15 +27,38 @@
 // console.log(`color hex: ${color.hex}`);
 // console.log(`color hsl hue: ${color.hsl.h}`);
 
-const Animal = {
-  name: "",
-  type: "unknown",
-  desc: "",
-  age: 0,
-};
+// const Animal = {
+//   name: "",
+//   type: "unknown",
+//   desc: "",
+//   age: 0,
+// };
 
-const animal = Object.create(Animal);
+// const animal = Object.create(Animal);
 
-animal.image = "image.jpg";
+// animal.image = "image.jpg";
 
-console.log(Animal.image);
+// console.log(Animal.image);
+
+const heading = document.querySelector("h1");
+
+let firstName = "Tobias";
+let lastName = "Roland";
+
+// sayHello(firstName, lastName);
+
+function sayHello(firstName, lastName) {
+  console.log(`Hello my name is ${firstName} ${lastName}`);
+}
+
+let myFirstName = "Tobias";
+let myAnimalType = "cat";
+let myAnimalName = "Sidse";
+
+// presentPet(myFirstName, myAnimalType, myAnimalName);
+
+presentPet(myFirstName, myAnimalType, myAnimalName);
+
+function presentPet(firstName, animalType, animalName) {
+  console.log(`My Name is ${firstName} i have a ${animalType} called ${animalName}`);
+}
