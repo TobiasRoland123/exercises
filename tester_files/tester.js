@@ -40,25 +40,78 @@
 
 // console.log(Animal.image);
 
-const heading = document.querySelector("h1");
+// const heading = document.querySelector("h1");
 
-let firstName = "Tobias";
-let lastName = "Roland";
+// let firstName = "Tobias";
+// let lastName = "Roland";
 
-// sayHello(firstName, lastName);
+// // sayHello(firstName, lastName);
 
-function sayHello(firstName, lastName) {
-  console.log(`Hello my name is ${firstName} ${lastName}`);
-}
+// function sayHello(firstName, lastName) {
+//   console.log(`Hello my name is ${firstName} ${lastName}`);
+// }
 
-let myFirstName = "Tobias";
-let myAnimalType = "cat";
-let myAnimalName = "Sidse";
+// let myFirstName = "Tobias";
+// let myAnimalType = "cat";
+// let myAnimalName = "Sidse";
+
+// // presentPet(myFirstName, myAnimalType, myAnimalName);
 
 // presentPet(myFirstName, myAnimalType, myAnimalName);
 
-presentPet(myFirstName, myAnimalType, myAnimalName);
+// function presentPet(firstName, animalType, animalName) {
+//   console.log(`My Name is ${firstName} i have a ${animalType} called ${animalName}`);
+// }
 
-function presentPet(firstName, animalType, animalName) {
-  console.log(`My Name is ${firstName} i have a ${animalType} called ${animalName}`);
+// function greeting(firstName) {
+//   return `Hello ${firstName}`;
+// }
+
+// const sayHi = greeting;
+
+// console.log(sayHi("Tobias"));
+
+const person3 = {
+  firstName: "Harry",
+  lastName: "Potter",
+  hired: false,
+};
+
+const person4 = {
+  firstName: "Fred",
+  lastName: "Weasley",
+  hired: false,
+};
+
+function hire(person) {
+  person.hired = true;
 }
+
+function fire(person) {
+  person.hired = false;
+}
+
+function fireOrHire(action, person) {
+  action(person);
+}
+
+fireOrHire(hire, person4);
+
+fireOrHire(fire, person3);
+
+// console.log(person3);
+// console.log(person4);
+
+console.log(`This is person3: 
+${person3.firstName}
+${person3.lastName}
+${person3.hired}
+
+`);
+
+console.log(`This is person4: 
+${person4.firstName}
+${person4.lastName}
+${person4.hired}
+
+`);
