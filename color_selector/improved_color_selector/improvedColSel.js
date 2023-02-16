@@ -17,8 +17,8 @@ function delegator() {
 
   colorValue = hexToRgb(colorValue);
   showRgbText(colorValue);
-  let cssString = convertRgbToCss(colorValue);
-  showColoredBox(cssString);
+
+  showColoredBox(convertRgbToCss(colorValue));
 
   colorValue = rgbToHsl(colorValue.r, colorValue.g, colorValue.b);
   showHslText(colorValue);
