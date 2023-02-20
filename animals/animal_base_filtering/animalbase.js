@@ -37,9 +37,12 @@ function prepareObjects(jsonData) {
   displayList(allAnimals);
 }
 
+// this functions as a forEach, so that for each object in the jsonData it runs.
 function preapareObject(jsonObject) {
+  // creates a copy of the Animal prototype, and calls it animal
   const animal = Object.create(Animal);
 
+  // splits fullname into array
   const texts = jsonObject.fullname.split(" ");
   animal.name = texts[0];
   animal.desc = texts[2];
@@ -71,26 +74,38 @@ function displayAnimal(animal) {
   document.querySelector("#list tbody").appendChild(clone);
 }
 
+// sets the selected filter
 function selectFilter() {
+  // the filter variable becomes equal to the chosen filter
   let filter = this.dataset.filter;
-  console.log(`the user chose ${filter}`);
+  // calls the filter list function with filter as parameter
   filterList(filter);
 }
 
 function filterList(animalType) {
+  // creates a variable "filteredList"
   let filteredList = allAnimals;
+  //   checks if animal type (the filter) is cat
   if (animalType === "cat") {
+    // if animal type is equal to cat then run all animals through cat filter
     filteredList = allAnimals.filter(isCat);
-  } else if (animalType === "dog") {
+  }
+  //   checks if animal type (the filter) is dog
+  else if (animalType === "dog") {
+    // if animal type is equal to cat then run all animals through dog filter
+
     filteredList = allAnimals.filter(isDog);
   }
-
+  // calls displayList with filteredList as a parameter
   displayList(filteredList);
 }
 
+// returns all animals with animal.type equal to "cat"
 function isCat(animal) {
   return animal.type === "cat";
 }
+
+// returns all animals with animal.type equal to "dog"
 
 function isDog(animal) {
   return animal.type === "dog";
