@@ -28,6 +28,7 @@ function delegator() {
   //   gives the colorValue variable the value of the return value from rgbToHsl function
   // The rgbToHsl fundtion is given 3 parameters the r,g and b from colorValue
   colorValue = rgbToHsl(colorValue.r, colorValue.g, colorValue.b);
+  //   now the colorValue is in HSL
   //   Calls the function showHslText that show the hsl value as text in HTML
   showHslText(colorValue);
 }
@@ -41,9 +42,9 @@ function getInputValue(value) {
 // converts the colorValue from hex to rgb and returns r,g,b
 function hexToRgb(hexValue) {
   //   console.log(hexValue);
-  let r = parseInt(hexValue.substring(1, 3), 16);
-  let g = parseInt(hexValue.substring(3, 5), 16);
-  let b = parseInt(hexValue.substring(5, 7), 16);
+  const r = parseInt(hexValue.substring(1, 3), 16);
+  const g = parseInt(hexValue.substring(3, 5), 16);
+  const b = parseInt(hexValue.substring(5, 7), 16);
 
   return { r, g, b };
 }
@@ -110,7 +111,7 @@ function showRgbText(rgbValue) {
 function showHslText(hslValue) {
   const hslTextField = document.querySelector(".showHsl");
 
-  hslTextField.textContent = `HSL: h:${Math.trunc(hslValue.h)}, s:${Math.trunc(hslValue.s)}%, l:${Math.trunc(hslValue.l)}%`;
+  hslTextField.textContent = `HSL: h:${Math.round(hslValue.h)}°, s:${Math.round(hslValue.s)}%, l:${Math.round(hslValue.l)}%`;
 }
 
 // This function returns a value that can be used to set rgb color in css
