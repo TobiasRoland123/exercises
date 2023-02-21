@@ -40,25 +40,56 @@
 
 // console.log(Animal.image);
 
-const heading = document.querySelector("h1");
+// const heading = document.querySelector("h1");
 
-let firstName = "Tobias";
-let lastName = "Roland";
+// let firstName = "Tobias";
+// let lastName = "Roland";
 
-// sayHello(firstName, lastName);
+// // sayHello(firstName, lastName);
 
-function sayHello(firstName, lastName) {
-  console.log(`Hello my name is ${firstName} ${lastName}`);
-}
+// function sayHello(firstName, lastName) {
+//   console.log(`Hello my name is ${firstName} ${lastName}`);
+// }
 
-let myFirstName = "Tobias";
-let myAnimalType = "cat";
-let myAnimalName = "Sidse";
+// let myFirstName = "Tobias";
+// let myAnimalType = "cat";
+// let myAnimalName = "Sidse";
+
+// // presentPet(myFirstName, myAnimalType, myAnimalName);
 
 // presentPet(myFirstName, myAnimalType, myAnimalName);
 
-presentPet(myFirstName, myAnimalType, myAnimalName);
+// function presentPet(firstName, animalType, animalName) {
+//   console.log(`My Name is ${firstName} i have a ${animalType} called ${animalName}`);
+// }
 
-function presentPet(firstName, animalType, animalName) {
-  console.log(`My Name is ${firstName} i have a ${animalType} called ${animalName}`);
+console.log(isDrowned(2.5, false, false));
+
+// Without flag
+/*function isDrowned(seaLevel, wetSuit, lyingDown) {
+  if (seaLevel > 2 && wetSuit === false) {
+    console.log("You drowned");
+  } else if (seaLevel > 1 && lyingDown === true) {
+    console.log("You drowned");
+  } else {
+    console.log("You are floating");
+  }
+}*/
+
+// with flag:
+
+function isDrowned(seaLevel, wetSuit, lyingDown) {
+  let isDrowned = false;
+
+  if (seaLevel > 2 && wetSuit === false) {
+    console.log("You drowned");
+    isDrowned = true;
+  } else if (seaLevel > 1 && lyingDown === true) {
+    isDrowned = true;
+    console.log("You drowned");
+  } else {
+    console.log("You are floating");
+  }
+
+  return isDrowned;
 }
