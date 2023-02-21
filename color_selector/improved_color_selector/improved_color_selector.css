@@ -1,0 +1,11 @@
+.container {
+  background-color: lightgray;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.showColorBox {
+  height: 100px;
+  width: 20%;
+}

@@ -28,14 +28,32 @@
 
 // function convertRgbToHex() {}
 
-let r, g, b;
+// let r, g, b;
 
-r = 233;
-g = 21;
-b = 111;
+// r = 233;
+// g = 21;
+// b = 111;
 
-rgbToHex(r, g, b);
+// console.log(rgbToHex(r, g, b));
 
-function rgbToHex(r, g, b) {
-  console.log(r, g, b);
-}
+// function rgbToHex(r, g, b) {
+//   r = r.toString(16);
+//   g = g.toString(16);
+//   b = b.toString(16);
+
+//   return `#${r}${g}${b}`;
+// }
+
+// let hexValue = "#e9156f";
+
+// console.log(hexToRgb(hexValue));
+
+// function hexToRgb(hexValue) {
+//   let r, g, b;
+//   r = parseInt(hexValue.substring(1, 3), 16);
+
+//   g = parseInt(hexValue.substring(3, 5), 16);
+//   b = parseInt(hexValue.substring(5, 7), 16);
+
+//   return `rgb(${r}, ${g}, ${b})`;
+// }
