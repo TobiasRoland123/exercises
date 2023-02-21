@@ -47,6 +47,7 @@ function cleanData(students) {
     cleanStudenHouse(newStudent, student);
     cleanStudentGender(newStudent, student);
     cleanStudentImage(newStudent, student);
+    allStudents.push(newStudent);
   });
 
   //   calls the displayData function
@@ -84,7 +85,7 @@ function cleanStudentName(newStudent, student) {
   }
 
   //   console.log(`_${newStudent.firstName}_`);
-  allStudents.push(newStudent);
+  //   allStudents.push(newStudent);
 }
 
 function cleanStudenHouse(newStudent, student) {
@@ -103,8 +104,8 @@ function cleanStudentGender(newStudent, student) {
 }
 
 function cleanStudentImage(newStudent, student) {
-  console.log(`_${newStudent.lastName}_`);
-  newStudent.image = `${newStudent.lastName.toLowerCase()}_${newStudent.firstName[0].toLowerCase()}.png`;
+  //   console.log(`_${newStudent.lastName}_`);
+  //   newStudent.image = `${newStudent.lastName.toLowerCase()}_${newStudent.firstName[0].toLowerCase()}.png`;
 }
 
 function displayStudents() {
