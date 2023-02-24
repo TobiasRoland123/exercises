@@ -11,6 +11,7 @@ const Animal = {
   type: "",
   age: 0,
   star: false,
+  winner: false,
 };
 
 const settings = {
@@ -96,8 +97,108 @@ function displayAnimal(animal) {
     buildList();
   }
 
+  // Winners
+
+  clone.querySelector("[data-field=winner]").dataset.winner = animal.winner;
+  clone.querySelector("[data-field=winner]").addEventListener("click", clickWinner);
+
+  function clickWinner() {
+    if (animal.winner === true) {
+      animal.winner = false;
+    } else {
+      tryToMakeAWinner(animal);
+    }
+    buildList();
+  }
+
   // append clone to list
   document.querySelector("#list tbody").appendChild(clone);
+}
+
+function tryToMakeAWinner(selectedAnimal) {
+  const winners = allAnimals.filter((animal) => animal.winner);
+  const numberOfWinners = winners.length;
+  const other = winners.filter((animal) => animal.type === selectedAnimal.type).shift();
+
+  // if there is another of same type
+  if (other !== undefined) {
+    console.log("there can be only one winner of each type");
+    removeOther(other);
+  } else if (numberOfWinners >= 2) {
+    console.log("there can be only be two winners!");
+    removeAorB(winners[0], winners[1]);
+  } else {
+    makeWinner(selectedAnimal);
+  }
+
+  // just for testing
+  // makeWinner(selectedAnimal);
+
+  function removeOther(other) {
+    // ask user to remove or ignore other
+    document.querySelector("#onlyonekind").classList.remove("dialog");
+    document.querySelector("#onlyonekind .closebutton").addEventListener("click", closeDigalog);
+    document.querySelector("#onlyonekind [data-action=remove1]").addEventListener("click", clickRemoveOther);
+
+    document.querySelector("#onlyonekind .animal1").textContent = other.name;
+
+    function closeDigalog() {
+      document.querySelector("#onlyonekind").classList.add("dialog");
+      document.querySelector("#onlyonekind .closebutton").removeEventListener("click", closeDigalog);
+      document.querySelector("#onlyonekind [data-action=remove1]").removeEventListener("click", clickRemoveOther);
+    }
+
+    function clickRemoveOther() {
+      removeWinner(other);
+      makeWinner(selectedAnimal);
+      buildList();
+      closeDigalog();
+    }
+
+    // if ignore - do nothing
+    // if remove other:
+  }
+  function removeAorB(winnerA, winnerB) {
+    // ask user to ignore or remove winnerA or winnerB
+    document.querySelector("#onlytwowinners").classList.remove("dialog");
+    document.querySelector("#onlytwowinners .closebutton").addEventListener("click", closeDigalog);
+    document.querySelector("#onlytwowinners [data-action=remove1]").addEventListener("click", clickRemoveA);
+    document.querySelector("#onlytwowinners [data-action=remove2]").addEventListener("click", clickRemoveB);
+
+    document.querySelector("#onlytwowinners .animal1").textContent = winnerA.name;
+    document.querySelector("#onlytwowinners .animal2").textContent = winnerB.name;
+
+    // if ignore - do nothing
+    function closeDigalog() {
+      document.querySelector("#onlytwowinners").classList.add("dialog");
+      document.querySelector("#onlytwowinners .closebutton").removeEventListener("click", closeDigalog);
+      document.querySelector("#onlytwowinners [data-action=remove1]").removeEventListener("click", clickRemoveA);
+      document.querySelector("#onlytwowinners [data-action=remove2]").removeEventListener("click", clickRemoveB);
+    }
+
+    // if remove winnerA -:
+
+    function clickRemoveA() {
+      removeWinner(winnerA);
+      makeWinner(selectedAnimal);
+      buildList();
+      closeDigalog();
+    }
+
+    // if remove winnerB-:
+    function clickRemoveB() {
+      removeWinner(winnerB);
+      makeWinner(selectedAnimal);
+      buildList();
+      closeDigalog();
+    }
+  }
+  function removeWinner(winnerAnimal) {
+    winnerAnimal.winner = false;
+  }
+  function makeWinner(animal) {
+    animal.winner = true;
+  }
 }
 
 // sets the selected filter
@@ -147,7 +248,7 @@ function buildList() {
   const currentList = filterList(allAnimals);
   const sortedList = sortList(currentList);
 
-  console.log(sortedList);
+  // console.log(sortedList);
 
   displayList(sortedList);
 }
