@@ -10,7 +10,6 @@ const Animal = {
   desc: "-unknown animal-",
   type: "",
   age: 0,
-<<<<<<< HEAD
   star: false,
 };
 
@@ -18,8 +17,6 @@ const settings = {
   filterBy: "all",
   sortBy: "name",
   sortDir: "asc",
-=======
->>>>>>> 90cc85928745cd33a3be4ab7cfd90c7b4940e042
 };
 
 function start() {
@@ -28,12 +25,8 @@ function start() {
   // TODO: Add event-listeners to filter and sort buttons
 
   document.querySelectorAll(".filter").forEach((button) => button.addEventListener("click", selectFilter));
-<<<<<<< HEAD
   document.querySelectorAll('[data-action="sort"]').forEach((button) => button.addEventListener("click", selectSort));
   document.querySelectorAll("[data-field=star]").forEach((star) => star.addEventListener("click", selectStar));
-=======
-
->>>>>>> 90cc85928745cd33a3be4ab7cfd90c7b4940e042
   loadJSON();
 }
 
@@ -48,13 +41,8 @@ async function loadJSON() {
 function prepareObjects(jsonData) {
   allAnimals = jsonData.map(preapareObject);
 
-<<<<<<< HEAD
   // Fixed so filter and sort os done at first load
   buildList();
-=======
-  // TODO: This might not be the function we want to call first
-  displayList(allAnimals);
->>>>>>> 90cc85928745cd33a3be4ab7cfd90c7b4940e042
 }
 
 // this functions as a forEach, so that for each object in the jsonData it runs.
@@ -90,7 +78,6 @@ function displayAnimal(animal) {
   clone.querySelector("[data-field=type]").textContent = animal.type;
   clone.querySelector("[data-field=age]").textContent = animal.age;
 
-<<<<<<< HEAD
   if (animal.star === true) {
     clone.querySelector("[data-field=star]").textContent = "⭐";
   } else {
@@ -109,8 +96,6 @@ function displayAnimal(animal) {
     buildList();
   }
 
-=======
->>>>>>> 90cc85928745cd33a3be4ab7cfd90c7b4940e042
   // append clone to list
   document.querySelector("#list tbody").appendChild(clone);
 }
@@ -119,7 +104,6 @@ function displayAnimal(animal) {
 function selectFilter() {
   // the filter variable becomes equal to the chosen filter
   let filter = this.dataset.filter;
-<<<<<<< HEAD
   // calls the setFilter funtion and sends the chosen dataset as a parameter
   setFilter(filter);
 }
@@ -132,40 +116,20 @@ function setFilter(filter) {
 function filterList(filteredList) {
   //   checks if animal type (the filter) is cat
   if (settings.filterBy === "cat") {
-=======
-  // calls the filter list function with filter as parameter
-  filterList(filter);
-}
-
-function filterList(animalType) {
-  // creates a variable "filteredList"
-  let filteredList = allAnimals;
-  //   checks if animal type (the filter) is cat
-  if (animalType === "cat") {
->>>>>>> 90cc85928745cd33a3be4ab7cfd90c7b4940e042
     // if animal type is equal to cat then run all animals through cat filter
     filteredList = allAnimals.filter(isCat);
   }
   //   checks if animal type (the filter) is dog
-<<<<<<< HEAD
   else if (settings.filterBy === "dog") {
-=======
-  else if (animalType === "dog") {
->>>>>>> 90cc85928745cd33a3be4ab7cfd90c7b4940e042
     // if animal type is equal to cat then run all animals through dog filter
 
     filteredList = allAnimals.filter(isDog);
   }
-<<<<<<< HEAD
   // console.log(filteredList);
   // filteredList.sort(sortAlphabeticly);
   // calls displayList with filteredList as a parameter
 
   return filteredList;
-=======
-  // calls displayList with filteredList as a parameter
-  displayList(filteredList);
->>>>>>> 90cc85928745cd33a3be4ab7cfd90c7b4940e042
 }
 
 // returns all animals with animal.type equal to "cat"
@@ -178,7 +142,6 @@ function isCat(animal) {
 function isDog(animal) {
   return animal.type === "dog";
 }
-<<<<<<< HEAD
 
 function buildList() {
   const currentList = filterList(allAnimals);
@@ -235,5 +198,3 @@ function sortList(sortedList) {
 function selectStar() {
   console.log("selectStar called");
 }
-=======
->>>>>>> 90cc85928745cd33a3be4ab7cfd90c7b4940e042
